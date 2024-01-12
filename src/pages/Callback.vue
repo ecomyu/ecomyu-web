@@ -11,8 +11,6 @@ import { useMyProfile } from 'stores/myprofile'
 
 import { storeToRefs } from 'pinia'
 
-import { setAccessToken as setApiAccessToken } from '../utils/api'
-
 export default defineComponent({
   inject: ['router', 'route', 'amplify'],
   setup() {

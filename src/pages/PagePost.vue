@@ -6,7 +6,7 @@ q-page-container
   q-page.justify-top.items-center
     .q-py-lg.q-py-lg-xl
       q-scroll-area.absolute-full.bg-area(:visible="true")
-        PartSingle(:id="router.currentRoute.value.params.id",size="2.5rem")
+        PartPostSingle(:id="router.currentRoute.value.params.id",size="2.5rem")
     span
 </template>
 
@@ -27,14 +27,14 @@ import PartDrawer from 'src/components/PartDrawer.vue'
 
 import PartNavbar from 'src/components/PartNavbar.vue'
 
-import PartSingle from 'src/components/PartSingle.vue'
+import PartPostSingle from 'src/components/PartPostSingle.vue'
 
 export default defineComponent({
   components: {
     PartToolbar,
     PartDrawer,
     PartNavbar,
-    PartSingle
+    PartPostSingle
   },
   inject: ['router', 'states', 'onReload'],
   setup() {

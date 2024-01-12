@@ -1,18 +1,14 @@
-# Quasar App (quasar-project)
+# ecomyu-web
 
-A Quasar Project
+ecomyu-webはSNSサービスを開始するためのプラットフォームecomyu(Free版)のWebアプリ部分です。
 
-## Install the dependencies
-```
-pnpm install
-```
+## Production
+[インストール方法](https://guide.ecomyu.com/INSTALL.html)
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+## Development
 ```
-quasar dev
+$ pnpm run dev
 ```
 
-### Build the app for production
-```
-quasar build
-```
+## License
+This project is open source and available under the GPL-3.0 License.

@@ -1,6 +1,6 @@
 <template lang="pug">
 q-dialog(ref="dialog",full-width,v-model="params.show",@before-hide="onHide")
-  authenticator(:hide-sign-up="true")
+  authenticator(:hide-sign-up="!enableSignup")
 </template>
 
 <script>
@@ -44,6 +44,8 @@ export default defineComponent({
 
     const dialog = ref()
 
+    const enableSignup = process.env.VUE_APP_SIGNUP === 'true' ? true : false
+
     watch(() => states.auth.route, async (newVal, oldVal) => {
       if (dialogs.login.show) {
         if (newVal === 'authenticated') {
@@ -66,6 +68,7 @@ export default defineComponent({
     return {
       dialog,
       states,
+      enableSignup,
       onHide,
     }
   }
