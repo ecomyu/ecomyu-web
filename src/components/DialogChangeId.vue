@@ -21,7 +21,7 @@ q-dialog(ref="dialog",maximized,position="right",v-model="props.params.show",@be
 
       q-toolbar.q-pa-none
         q-space
-        q-btn(rounded,unelevated,,color="primary",:label="$t('Change Id')",:disabled="!v$.$anyDirty || v$.$invalid",@click="onSubmit")
+        q-btn(rounded,unelevated,color="primary",:icon="$t('icons.id')",:label="$t('Change Id')",:disabled="!v$.$anyDirty || v$.$invalid",@click="onSubmit")
   span
 </template>
 
