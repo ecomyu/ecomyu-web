@@ -1,7 +1,7 @@
 <template lang="pug">
 q-footer(v-if="states.screenSize === 'xsmall'")
   q-tabs.bg-secondary
-    q-tab(class="search",:icon="$t('icons.home')",@click="onClickedTo('/')")
+    q-tab(class="top",:icon="$t('icons.top')",@click="onClickedTo('/')")
     //-q-tab(class="search",:icon="$t('icons.search')",@click="onClickedTo('/')")
     template(v-if="states.auth.authStatus === 'authenticated'")
       q-tab(class="myprofile",:icon="$t('icons.profile')",@click="onClickedTo(`/@${myprofile.id.value}`)")
