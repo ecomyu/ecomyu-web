@@ -64,7 +64,7 @@ import { useI18n } from 'vue-i18n'
 
 import { useQuasar, copyToClipboard } from 'quasar'
 
-import { wait, nl2br, safeHtml, stripTags, formatDateNow, formatDateLocal, formatNumber, onStampIntersection, onStampInterval, like, getNoticePhrase } from '../utils/common'
+import { flatten, wait, nl2br, safeHtml, stripTags, formatDateNow, formatDateLocal, formatNumber, onStampIntersection, onStampInterval, like } from '../utils/common'
 
 import { useMyProfile } from 'src/stores/myprofile'
 
@@ -240,7 +240,25 @@ export default defineComponent({
     }
 
     const getPhrase = (notice) => {
-      return getNoticePhrase(t, notice)
+      const template = 'template.notice.' + notice.action
+      const flattenNotice = flatten(notice)
+
+      let text = t(template, flattenNotice)
+
+      let c = 0
+      while (text.match(/\{(.+)\}/)) {
+        let placeholder = RegExp.$1
+        let str = flattenNotice[placeholder]
+        if (!str) {
+          str = '???'
+        }
+        text = text.replace('{' + placeholder + '}', str)
+
+        c++
+        if (c > 10) { break }
+      }
+
+      return text
     }
 
     const onClick = (notice) => {

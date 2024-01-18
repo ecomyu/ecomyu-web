@@ -306,10 +306,6 @@ const getMyprofileAvatar = (myprofile) => {
   return data
 }
 
-const getNoticePhrase = (t, notice) => {
-  return t(`template.notice.${notice.action}`, flatten(notice))
-}
-
 export {
   clone, compare,
   nl2br,
@@ -328,6 +324,5 @@ export {
   like,
   // share,
   copyLink, copyUserLink,
-  getMyprofileAvatar,
-  getNoticePhrase
+  getMyprofileAvatar
 }

@@ -35,7 +35,7 @@
     "striptags": "^3.2.0",
     "url-join": "^5.0.0",
     "vue": "^3.0.0",
-    "vue-i18n": "^9.0.0",
+    "vue-i18n": "^9.9.0",
     "vue-router": "^4.0.0"
   },
   "devDependencies": {
