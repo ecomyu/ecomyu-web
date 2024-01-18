@@ -1,5 +1,23 @@
 <template lang="pug">
 q-header
+  template(v-if="router.currentRoute.value.path !== '/notice'")
+    q-toolbar.q-px-xs
+      q-item.no-padding
+        PartMenu
+      q-space
+      template(v-if="router.currentRoute.value.path === '/'")
+        template(v-if="!isSearch")
+          q-btn.q-mr-xs(round,unelevated,:icon="$t('icons.search')",@click="isSearch = true")
+        template(v-else)
+          q-input(ref="input",dense,outlined,dark,:placeholder="$t('placeholders.keyword')",v-model="text",@keydown.enter.prevent="onSearch = true",style="width: 100%")
+            template(v-slot:append)
+              //-q-icon.cursor-pointer.q-mr-xs(v-if="isSearch || keyword.trim() !== ''",:name="$t('icons.close')",@click="keyword = ''; isSearch = false; onSearch = true;")
+              q-icon.cursor-pointer(:name="$t('icons.search')",@click="onSearch = true")
+            q-popup-proxy(ref="popup",no-focus,:model-value="show",no-parent-event,:breakpoint="1")
+              q-list
+                template(v-for="suggest of suggests")
+                  q-item(dense,clickable,@click="clickSuggests(suggest)") {{suggest}}
+
   template(v-if="router.currentRoute.value.path === '/notice'")
     q-toolbar.q-px-xs
       q-item.no-padding
