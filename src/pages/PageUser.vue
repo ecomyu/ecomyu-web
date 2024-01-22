@@ -75,8 +75,6 @@ q-page-container
                 template(v-if="myprofile && myprofile._id.value === data._id")
                 template(v-else)
                   div(v-if="states.auth.authStatus === 'authenticated'")
-                    template(v-if="data.isFollowing")
-                      q-btn.q-mr-sm.q-px-sm(rounded,flat,:icon="$t('icons.chat')",,@click="onClickedTo(`/chat?id=${data.id}`)")
                     template(v-if="!data.isFollowing")
                       q-btn(rounded,color="primary",:label="$t('Follow')",@click="onFollow()",:disabled="data.isBlocking || data.isBlocked")
                     template(v-else)
