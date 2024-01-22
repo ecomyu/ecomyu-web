@@ -126,7 +126,7 @@ q-page-container
             q-list.bg-area
               PartPostRecursive(:posts="posts",:depth="1",:level="1",:options="{showParent: true}")
 
-              q-item-section(v-if="(tab === 'posts' && data.postsCount > posts.length) || (tab === 'likes' && data.likesCount > posts.length)")
+              q-item-section(v-if="(tab === 'posts' && data.postsCount > posts.length) || (tab === 'likes' && data.likesCount > 0)")
                 q-item.self-center
                   q-btn.q-px-lg(rounded,unelevated,color="info",clickable,@click="loadPosts()") {{ $t('More Read') }}
 
@@ -388,7 +388,7 @@ export default defineComponent({
         count = data.likesCount
       }
 
-      if (data.postsCount > 0 && count > posts.value.length) {
+      if (count > 0) {
         let postsFilters = []
 
         if (posts.value.length > 0) {
