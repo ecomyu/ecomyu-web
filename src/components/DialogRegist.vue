@@ -12,7 +12,7 @@ q-dialog(ref="dialog",v-model="props.params.show",@before-hide="onHide",no-backd
         q-item.q-px-sm.q-mb-md
           q-item-section
             .full-width.text-body2
-              span <a href="/privacy" target="_blank">利用規約</a>・<a href="/terms" target="_blank">プライバシーポリシー</a>に同意の上、ユーザー名を入力して登録ボタンを押してください。
+              span <a href="/terms" target="_blank">利用規約</a>・<a href="/privacy" target="_blank">プライバシーポリシー</a>に同意の上、ユーザー名を入力して登録ボタンを押してください。
 
         q-form.q-gutter-sm
           q-input(name="handle",v-model="v$.handle.$model",:error="v$.handle.$error",stack-label,:label="$t('fields.myprofile.handle')",outlined)
