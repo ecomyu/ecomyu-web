@@ -147,9 +147,9 @@ export default defineComponent({
         nextTick(async () => {
           setTimeout(()=> {
             reload()
-            return
           }, 300)
         })
+        return
       } else {
         await storeMyProfile.refresh()
       }
@@ -157,6 +157,7 @@ export default defineComponent({
       if (reloading) { return }
       reloading = true
 
+      console.log('reload runr')
       q.loading.show()
 
       postsFilters = [{
