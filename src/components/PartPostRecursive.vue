@@ -1,7 +1,7 @@
 <template lang="pug">
 template(v-for="post in posts",:key="post._id")
   template(v-if="post.deleted")
-    //-q-item(style="margin-bottom: 1px;",:class="[`indent-${(Number(depth) + Number(post.depth ? post.depth : 0) - Number(rootDepth)) - 1}`, (!post.isAd ? 'bg-white': 'bg-gray-1')]")
+    q-item(style="margin-bottom: 1px;",:class="`indent-${(Number(depth) + Number(post.depth ? post.depth : 0) - Number(rootDepth)) - 1}`")
       q-item.full-width.q-pa-none
         .full-width.q-pa-sm.column
           .row
