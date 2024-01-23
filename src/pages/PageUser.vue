@@ -146,7 +146,7 @@ import { useMyProfile } from 'src/stores/myprofile'
 
 import { getData, /* uploadFile, loadImageTo */ } from 'src/utils/api'
 
-import { wait, nl2br, safeHtml, safeText, stripLinebreaks, textToLink, shortUrl, formatDateNow, formatNumber, onStampIntersection, onStampInterval, /*loadOptionsColor, checkUploadImageFile,*/ follow, block, copyUserLink } from 'src/utils/common'
+import { clone, wait, nl2br, safeHtml, safeText, stripLinebreaks, textToLink, shortUrl, formatDateNow, formatNumber, onStampIntersection, onStampInterval, /*loadOptionsColor, checkUploadImageFile,*/ follow, block, copyUserLink } from 'src/utils/common'
 
 import PartPostRecursive from 'src/components/PartPostRecursive.vue'
 
@@ -472,7 +472,9 @@ export default defineComponent({
     }
 
     const onFollow = async () => {
-      if (data.isFollowing) {
+      const user = clone(data)
+
+      if (user.isFollowing) {
         q.dialog({
           message: nl2br(t('Confirm UnFollow')),
           ok: {
@@ -485,7 +487,7 @@ export default defineComponent({
           html: true,
           persistent: true
         }).onOk(() => {
-          follow(data)
+          follow(user)
 
           setTimeout(()=> {
             nextTick(async () => {
@@ -494,7 +496,7 @@ export default defineComponent({
           }, 200)
         })
       } else {
-        follow(data)
+        follow(user)
 
         setTimeout(()=> {
           nextTick(async () => {
@@ -505,7 +507,9 @@ export default defineComponent({
     }
 
     const onBlock = async () => {
-      block(data)
+      const user = clone(data)
+
+      block(user)
 
       setTimeout(()=> {
         nextTick(async () => {
