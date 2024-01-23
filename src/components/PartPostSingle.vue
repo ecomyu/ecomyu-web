@@ -102,6 +102,7 @@ export default defineComponent({
     const load = async () => {
       try {
         const json = await getData(`/posts/${id.value}`)
+
         if (json && json._id) {
           if (json.parents) {
             let depth = Object.keys(json.parents).length * -1
@@ -153,37 +154,38 @@ export default defineComponent({
             selectedColor.value = OptionsColor[0]
           }
           */
+
+          let title = null
+          let description = null
+
+          if (json.deleted) {
+            title = t('Deleted Post')
+            description = '-'
+          } else if (json.PostedBy && !json.PostedBy.deleted && json.PostedBy.handle) {
+            title = safeText(json.PostedBy.handle) + ' @' + json.PostedBy.id
+            if (json.postedAt) {
+              title += ' ' + formatDateLocal(json.postedAt)
+            }
+
+            description = stripLinebreaks(safeText(json.text))
+          }
+
+          if (title) {
+            useMeta(() => {
+              return {
+                title: title,
+                meta: {
+                  description: {
+                    name: 'description',
+                    content: description
+                  }
+                }
+              }
+            })
+          }
         }
       } catch (e) {
         posts.value.push({ deleted: true })
-      }
-
-      if (posts.value.length > 0) {
-        const post = posts.value[0]
-
-        let title = ''
-        if (post.PostedBy && !post.PostedBy.deleted && post.PostedBy.handle) {
-          title = safeText(post.PostedBy.handle) + ' @' + post.PostedBy.id
-        } else {
-          title = '?'
-        }
-        if (post.postedAt) {
-          title += ' ' + formatDateLocal(post.postedAt)
-        }
-
-        const description = stripLinebreaks(safeText(post.text))
-
-        useMeta(() => {
-          return {
-            title: title,
-            meta: {
-              description: {
-                name: 'description',
-                content: description
-              }
-            }
-          }
-        })
       }
 
       q.loading.hide()
