@@ -71,11 +71,11 @@ dependencies:
 
 devDependencies:
   '@intlify/vite-plugin-vue-i18n':
-    specifier: ^3.3.1
-    version: 3.4.0(vite@2.9.16)(vue-i18n@9.9.0)
+    specifier: ^7.0.0
+    version: 7.0.0(vite@2.9.16)(vue-i18n@9.9.0)
   '@quasar/app-vite':
-    specifier: ^1.3.0
-    version: 1.7.1(eslint@8.56.0)(pinia@2.1.7)(quasar@2.14.2)(stylus@0.62.0)(vue-router@4.2.5)(vue@3.4.6)
+    specifier: ^1.7.3
+    version: 1.7.3(eslint@8.56.0)(pinia@2.1.7)(quasar@2.14.2)(stylus@0.62.0)(vue-router@4.2.5)(vue@3.4.6)
   autoprefixer:
     specifier: ^10.4.2
     version: 10.4.16(postcss@8.4.33)
@@ -891,8 +891,8 @@ packages:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
     dev: true
 
-  /@intlify/bundle-utils@2.2.2(vue-i18n@9.9.0):
-    resolution: {integrity: sha512-vngkvlIVV8ZJoyC5VqMvqJd2nvsx+qMN7pQjPiPjOrVndeiR7Dlue0k86Q8FsFUzyksW3HJZZi833ldxwbFzTA==}
+  /@intlify/bundle-utils@3.4.0(vue-i18n@9.9.0):
+    resolution: {integrity: sha512-2UQkqiSAOSPEHMGWlybqWm4G2K0X+FyYho5AwXz6QklSX1EY5EDmOSxZmwscn2qmKBnp6OYsme5kUrnN9xrWzQ==}
     engines: {node: '>= 12'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -903,8 +903,8 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/message-compiler': 9.9.0
-      '@intlify/shared': 9.9.0
+      '@intlify/message-compiler': 9.4.1
+      '@intlify/shared': 9.4.1
       jsonc-eslint-parser: 1.4.1
       source-map: 0.6.1
       vue-i18n: 9.9.0(vue@3.4.6)
@@ -918,6 +918,14 @@ packages:
       '@intlify/message-compiler': 9.9.0
       '@intlify/shared': 9.9.0
 
+  /@intlify/message-compiler@9.4.1:
+    resolution: {integrity: sha512-aN2N+dUx320108QhH51Ycd2LEpZ+NKbzyQ2kjjhqMcxhHdxtOnkgdx+MDBhOy/CObwBmhC3Nygzc6hNlfKvPNw==}
+    engines: {node: '>= 16'}
+    dependencies:
+      '@intlify/shared': 9.4.1
+      source-map-js: 1.0.2
+    dev: true
+
   /@intlify/message-compiler@9.9.0:
     resolution: {integrity: sha512-yDU/jdUm9KuhEzYfS+wuyja209yXgdl1XFhMlKtXEgSFTxz4COZQCRXXbbH8JrAjMsaJ7bdoPSLsKlY6mXG2iA==}
     engines: {node: '>= 16'}
@@ -925,30 +933,38 @@ packages:
       '@intlify/shared': 9.9.0
       source-map-js: 1.0.2
 
+  /@intlify/shared@9.4.1:
+    resolution: {integrity: sha512-A51elBmZWf1FS80inf/32diO9DeXoqg9GR9aUDHFcfHoNDuT46Q+fpPOdj8jiJnSHSBh8E1E+6qWRhAZXdK3Ng==}
+    engines: {node: '>= 16'}
+    dev: true
+
   /@intlify/shared@9.9.0:
     resolution: {integrity: sha512-1ECUyAHRrzOJbOizyGufYP2yukqGrWXtkmTu4PcswVnWbkcjzk3YQGmJ0bLkM7JZ0ZYAaohLGdYvBYnTOGYJ9g==}
     engines: {node: '>= 16'}
 
-  /@intlify/vite-plugin-vue-i18n@3.4.0(vite@2.9.16)(vue-i18n@9.9.0):
-    resolution: {integrity: sha512-XXcZBgwJ+3FRu11c4ARoY9N00kElPii0/jNZ49qR045Ka7/YGCwb1Ku14BBlMSEHiHDSjLQknLwrJKSQGVZLyA==}
-    engines: {node: '>= 12'}
+  /@intlify/vite-plugin-vue-i18n@7.0.0(vite@2.9.16)(vue-i18n@9.9.0):
+    resolution: {integrity: sha512-2TbDOQ8XD+vkc0s5OFmr+IY/k4mYMC7pzvx0xGQn+cU/ev314+yi7Z7N7rWcBgiYk1WOUalbGSo3d4nJDxOOyw==}
+    engines: {node: '>= 14.6'}
+    deprecated: This plugin support until Vite 3. If you would like to use on Vite 4, please use @intlify/unplugin-vue-i18n
     peerDependencies:
-      petite-vue-i18n: ^9.1.0
-      vite: ^2.0.0
-      vue-i18n: ^9.1.0
+      petite-vue-i18n: '*'
+      vite: ^2.9.0 || ^3.0.0
+      vue-i18n: '*'
     peerDependenciesMeta:
       petite-vue-i18n:
+        optional: true
+      vite:
         optional: true
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/bundle-utils': 2.2.2(vue-i18n@9.9.0)
-      '@intlify/shared': 9.9.0
+      '@intlify/bundle-utils': 3.4.0(vue-i18n@9.9.0)
+      '@intlify/shared': 9.4.1
       '@rollup/pluginutils': 4.2.1
       debug: 4.3.4
       fast-glob: 3.3.2
       source-map: 0.6.1
-      vite: 2.9.16(sass@1.69.7)(stylus@0.62.0)
+      vite: 2.9.16(sass@1.70.0)(stylus@0.62.0)
       vue-i18n: 9.9.0(vue@3.4.6)
     transitivePeerDependencies:
       - supports-color
@@ -1030,8 +1046,8 @@ packages:
     dev: false
     optional: true
 
-  /@quasar/app-vite@1.7.1(eslint@8.56.0)(pinia@2.1.7)(quasar@2.14.2)(stylus@0.62.0)(vue-router@4.2.5)(vue@3.4.6):
-    resolution: {integrity: sha512-cs3ix7w8f7884JiTp3EW6auZ9R+Fg4qoPxEZ7VRGOrSsUg5oQtR/i91jeQk4Z96J/JUOqtcKqdqbzN4fzaFyIg==}
+  /@quasar/app-vite@1.7.3(eslint@8.56.0)(pinia@2.1.7)(quasar@2.14.2)(stylus@0.62.0)(vue-router@4.2.5)(vue@3.4.6):
+    resolution: {integrity: sha512-pnDInCFP9M1d7lJzS8UkiFq8bGWdekLz8Gu+NLI9UAxruIM9QVlSD4hUmWptTQXaVEvYlDnqfW3LOr57B8eVtw==}
     engines: {node: ^24 || ^22 || ^20 || ^18 || ^16 || ^14.19, npm: '>= 6.14.12', yarn: '>= 1.17.3'}
     hasBin: true
     peerDependencies:
@@ -1089,11 +1105,11 @@ packages:
       quasar: 2.14.2
       register-service-worker: 1.7.2
       rollup-plugin-visualizer: 5.12.0
-      sass: 1.69.7
+      sass: 1.70.0
       semver: 7.5.4
       serialize-javascript: 6.0.2
       table: 6.8.1
-      vite: 2.9.16(sass@1.69.7)(stylus@0.62.0)
+      vite: 2.9.16(sass@1.70.0)(stylus@0.62.0)
       vue: 3.4.6
       vue-router: 4.2.5(vue@3.4.6)
       webpack-merge: 5.10.0
@@ -1126,7 +1142,7 @@ packages:
     dependencies:
       '@vitejs/plugin-vue': 2.3.4(vite@2.9.16)(vue@3.4.6)
       quasar: 2.14.2
-      vite: 2.9.16(sass@1.69.7)(stylus@0.62.0)
+      vite: 2.9.16(sass@1.70.0)(stylus@0.62.0)
       vue: 3.4.6
     dev: true
 
@@ -1699,7 +1715,7 @@ packages:
       vite: ^2.5.10
       vue: ^3.2.25
     dependencies:
-      vite: 2.9.16(sass@1.69.7)(stylus@0.62.0)
+      vite: 2.9.16(sass@1.70.0)(stylus@0.62.0)
       vue: 3.4.6
     dev: true
 
@@ -4771,8 +4787,8 @@ packages:
       postcss: 8.4.33
     dev: false
 
-  /sass@1.69.7:
-    resolution: {integrity: sha512-rzj2soDeZ8wtE2egyLXgOOHQvaC2iosZrkF6v3EUG+tBwEvhqUCzm0VP3k9gHF9LXbSrRhT5SksoI56Iw8NPnQ==}
+  /sass@1.70.0:
+    resolution: {integrity: sha512-uUxNQ3zAHeAx5nRFskBnrWzDUJrrvpCPD5FNAoRvTi0WwremlheES3tg+56PaVtCs5QDRX5CBLxxKMDJMEa1WQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -5291,7 +5307,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vite@2.9.16(sass@1.69.7)(stylus@0.62.0):
+  /vite@2.9.16(sass@1.70.0)(stylus@0.62.0):
     resolution: {integrity: sha512-X+6q8KPyeuBvTQV8AVSnKDvXoBMnTx8zxh54sOwmmuOdxkjMmEJXH2UEchA+vTMps1xw9vL64uwJOWryULg7nA==}
     engines: {node: '>=12.2.0'}
     hasBin: true
@@ -5311,7 +5327,7 @@ packages:
       postcss: 8.4.33
       resolve: 1.22.8
       rollup: 2.77.3
-      sass: 1.69.7
+      sass: 1.70.0
       stylus: 0.62.0
     optionalDependencies:
       fsevents: 2.3.3

@@ -31,7 +31,7 @@ q-header
 <script>
 import { defineComponent, onMounted, inject, reactive, ref, computed, watch, nextTick, toRef } from 'vue'
 
-import { wait, nl2br, stripTags, formatDateNow, formatNumber, onStampIntersection, onStampInterval, follow, block } from 'src/utils/common'
+import { wait, nl2br, stripTags, formatDateNow, formatNumber, onStampIntersection, onStampInterval } from 'src/utils/common'
 
 import { getData, postData, deleteData, loadImageTo } from 'src/utils/api'
 
