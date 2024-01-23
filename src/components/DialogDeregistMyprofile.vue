@@ -13,13 +13,12 @@ q-dialog(ref="dialog",persistent,v-model="props.params.show",@before-hide="onHid
       q-btn(rounded,unelevated,,color="negative",:icon="$t('icons.deregist')",:label="$t('Deregist')",@click="onSubmit")
 
 q-dialog(full-width,v-model="showDialog")
-  template(v-slot="{ user, signOut }")
-    q-card
-      q-card-section
-        span(v-html="nl2br($t('Sorry To See You Go'))")
-      q-card-section.row.q-pt-none
-        q-space
-        q-btn(color="primary",:label="$t('Ok')",@click="signOut")
+  q-card
+    q-card-section
+      span(v-html="nl2br($t('Sorry To See You Go'))")
+    q-card-section.row.q-pt-none
+      q-space
+      q-btn(color="primary",:label="$t('Ok')",@click="onFinish")
 </template>
 
 <script>
@@ -105,6 +104,11 @@ export default defineComponent({
       }
     }
 
+    const onFinish = () => {
+      router.push(`/`)
+      dialogs.deregistMyProfile.show = false
+    }
+
     return {
       dialog,
       states,
@@ -113,6 +117,7 @@ export default defineComponent({
       showDialog,
       onHide,
       onSubmit,
+      onFinish,
     }
   }
 })
