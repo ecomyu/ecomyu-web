@@ -32,7 +32,8 @@ module.exports = configure(function (ctx) {
     boot: [
       'i18n',
       'axios',
-      'amplify'
+      'amplify',
+      'ga'
     ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
