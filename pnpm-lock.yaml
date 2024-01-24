@@ -62,6 +62,9 @@ dependencies:
   vue:
     specifier: ^3.0.0
     version: 3.4.6
+  vue-gtag-next:
+    specifier: ^1.14.0
+    version: 1.14.0(vue@3.4.6)
   vue-i18n:
     specifier: ^9.9.0
     version: 9.9.0(vue@3.4.6)
@@ -5384,6 +5387,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /vue-gtag-next@1.14.0(vue@3.4.6):
+    resolution: {integrity: sha512-iJl+cOG2GU5NuxqzSSIpt03WVOvZqyKB9TOy7d55KiuvRklcnb2nlqxW5B/a3/sbIt7fla+XEkRyMCcoz0zAHw==}
+    peerDependencies:
+      vue: ^3.0.0-rc.11
+    dependencies:
+      vue: 3.4.6
+    dev: false
 
   /vue-i18n@9.9.0(vue@3.4.6):
     resolution: {integrity: sha512-xQ5SxszUAqK5n84N+uUyHH/PiQl9xZ24FOxyAaNonmOQgXeN+rD9z/6DStOpOxNFQn4Cgcquot05gZc+CdOujA==}
