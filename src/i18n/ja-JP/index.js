@@ -98,7 +98,8 @@ export default {
       like: '<b>{PostedBy_handle}</b>さんから<!--投稿に--><b>いいね</b>いただきました',
       comment: '<b>{PostedBy_handle}</b>さんから<!--投稿に-->コメントいただきました',
       post: '<b>{PostedBy_handle}</b>さんが新しく投稿しました',
-      reference: '<b>{PostedBy_handle}</b>さんが<!--投稿を-->引用しました'
+      reference: '<b>{PostedBy_handle}</b>さんが新しく引用投稿しました',
+      referenced: '<b>{PostedBy_handle}</b>さんがあなたの投稿を引用しました'
     }
   },
   'Top': 'トップ',

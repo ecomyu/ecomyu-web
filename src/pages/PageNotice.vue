@@ -31,7 +31,7 @@ q-page-container
                         PartAvatar(:user="notice.PostedBy",size="2.5rem")
                       q-item-section
                         q-item-label(v-html="getPhrase(notice)")
-                template(v-else-if="notice.action === 'post' || notice.action === 'like' || notice.action === 'comment' || notice.action === 'reference'")
+                template(v-else-if="notice.action === 'post' || notice.action === 'like' || notice.action === 'comment' || notice.action === 'reference' || notice.action === 'referenced'")
                   template(v-if="!notice.PostedBy")
                     q-item-section(avatar,top,style="min-width:2rem;max-width:2rem")
                       q-skeleton(type="QAvatar",style="width:1.5rem;height:1.5rem")
@@ -262,7 +262,7 @@ export default defineComponent({
     }
 
     const onClick = (notice) => {
-      if (notice.action === 'post' || notice.action === 'like' || notice.action === 'reference' || notice.action === 'comment') {
+      if (notice.action === 'post' || notice.action === 'like' || notice.action === 'reference' || notice.action === 'referenced' || notice.action === 'comment') {
         dialogs.single.id = notice.postId
         dialogs.single.show = true
       } else if (notice.action === 'follow') {
