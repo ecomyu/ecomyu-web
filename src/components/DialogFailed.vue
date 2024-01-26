@@ -35,7 +35,6 @@ export default defineComponent({
     const dialog = ref()
 
     watch(() => props.params.show, async (newVal, oldVal) => {
-      console.log('show')
       if (newVal) {
         // reload()
       }

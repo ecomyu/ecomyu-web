@@ -248,7 +248,7 @@ export default defineComponent({
     }
 
     watch(() => states.auth.route, async (newVal, oldVal) => {
-      console.log(newVal)
+      // console.log(newVal)
     })
     watch(() => states.auth.authStatus, async (newVal, oldVal) => {
       if (!newVal) { return }

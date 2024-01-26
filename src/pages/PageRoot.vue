@@ -157,7 +157,6 @@ export default defineComponent({
       if (reloading) { return }
       reloading = true
 
-      console.log('reload runr')
       q.loading.show()
 
       postsFilters = [{
